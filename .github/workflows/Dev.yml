@@ -30,7 +30,7 @@ jobs:
       with:
         file: "target/*.jar"
         tags: true
-        overwrite: true
+        overwrite: false
         tag_name: "Dev"
-        update_latest_release: true
+        update_latest_release: false
         draft: false
