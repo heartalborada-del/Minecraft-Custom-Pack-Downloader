@@ -28,4 +28,4 @@ jobs:
       with:
         args: CPD.jar
       env:
-        ITHUB_TOKEN: ${{ GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
