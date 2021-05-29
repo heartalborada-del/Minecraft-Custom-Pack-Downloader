@@ -21,7 +21,6 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
     <build>
-        <finalName>CPD</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
