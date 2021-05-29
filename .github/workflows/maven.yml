@@ -30,6 +30,7 @@ jobs:
       with:
         file: "target/CPD.jar"
         tags: true
+        overwrite: true
         tag_name: "Release"
         update_latest_release: true
-        draft: true
+        draft: false
