@@ -1,13 +1,13 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Java CI with Maven
+name: Build Develop Version
 
 on:
   push:
-    branches: [ Stable ]
+    branches: [ Develop ]
   pull_request:
-    branches: [ Stable ]
+    branches: [ Develop ]
 
 jobs:
   build:
@@ -28,9 +28,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        file: "target/CPD.jar"
+        file: "target/*.jar"
         tags: true
         overwrite: true
-        tag_name: "Release"
-        update_latest_release: true
+        tag_name: "Dev"
+        update_latest_release: false
+        prerelease: true
         draft: false
