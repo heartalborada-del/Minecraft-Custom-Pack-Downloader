@@ -33,4 +33,5 @@ jobs:
         overwrite: false
         tag_name: "Dev"
         update_latest_release: false
+        prerelease: true
         draft: false
