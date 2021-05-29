@@ -33,9 +33,10 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
-    - name: Upload to release
-      uses: JasonEtco/upload-to-release@master
-      with:
-        args: target/CPD.jar
+    - name: Upload asset to release
+      uses: gacts/upload-to-release@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        file: 'target/CPD.jar'
+        type: 'application/octet-stream'
