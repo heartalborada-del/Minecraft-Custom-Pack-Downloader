@@ -5,9 +5,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: [ Release ]
   pull_request:
-    branches: [ master ]
+    branches: [ Release ]
 
 jobs:
   build:
@@ -23,3 +23,13 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Create Release # 创建Release，可以在仓库看到一个个版本
+      id: create_release
+      uses: actions/create-release@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }} # 之前GitHub添加的Token
+      with:
+        tag_name: ${{ github.ref }} # (tag)标签名称
+        release_name: Release ${{ github.ref }}
+        draft: false # 是否是草稿
+        prerelease: false # 是否是预发布
