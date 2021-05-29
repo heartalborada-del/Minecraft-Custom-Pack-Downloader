@@ -19,7 +19,7 @@ public class Start {
                 url=file[0];
                 email=file[1];
                 System.out.println("Gui is loading,please be wait!");
-                if (new Internet().Ping(url + "/empty")) {
+                if (new Internet().Ping(url)) {
                     String[] File_list = getProperty("user.dir").replace("\\", "/").split("/");
                     if (File_list[File_list.length - 1] != "resourcepacks" || File_list.length == 1) {
                         Frame frame = new Frame();
@@ -39,10 +39,10 @@ public class Start {
                     System.exit(0);
                 }
             }
-            //System.out.println(url+"\n"+email);
             else if(file==null){
                 System.err.println("No Url or email,please tell your server admin!");
             }
+            System.out.println(url+"\n"+email);
         }
     }
 }

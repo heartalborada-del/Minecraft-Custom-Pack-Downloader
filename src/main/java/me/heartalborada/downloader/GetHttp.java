@@ -1,5 +1,7 @@
 package me.heartalborada.downloader;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,18 +9,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class GetHttp {
     public static String[] GetList(String url) {
         Get_File http = new Get_File();
-        String[] text_data = http.doGet(url+"/list.txt").split(";");
-        return text_data;
+        return http.doGet(url+"/list.txt").split(";");
     }
 
-    public static String[] GetInfo(String url) {
+    public static String @NotNull [] GetInfo(String url) {
         Get_File http = new Get_File();
-        String[] text_data = http.doGet(url+"/update_log.txt").split(";");
-        return text_data;
+        return http.doGet(url+"/update_log.txt").split(";");
     }
 
     public static class Get_File {
@@ -35,8 +36,9 @@ public class GetHttp {
                 conn.setReadTimeout(60000);
                 conn.setRequestProperty("Accept", "application/json");
                 conn.connect();
+                System.out.println(conn.getResponseCode());
                 is = conn.getInputStream();
-                br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
                 String line;
                 if (200 == conn.getResponseCode() && (line = br.readLine()) != null) {
                     result.append(line);
