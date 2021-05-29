@@ -1,0 +1,3 @@
+Manifest-Version: 2.0
+Created-By: Heartalborada's Studio
+Main-Class: me.heartalborada.downloader.Start
