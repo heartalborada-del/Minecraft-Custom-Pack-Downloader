@@ -24,8 +24,12 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Upload to release
-      uses: JasonEtco/upload-to-release@master
+      uses: xresloader/upload-to-github-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: target/CPD.jar
+        file: "\target\CPD.jar"
+        tags: true
+        tag_name: "Release"
+        update_latest_release: true
+        draft: true
