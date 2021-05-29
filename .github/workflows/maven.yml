@@ -23,5 +23,10 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Java Maven release
-      uses: qcastel/github-actions-maven-release@v1.12.12
+    - name: Create Release
+      uses: ncipollo/release-action@v1.8.6
+      with: 
+        tag_name: V2.2
+        release_name: az
+        draft: false
+        token: ${{ secrets.GITHUB_TOKEN }}
