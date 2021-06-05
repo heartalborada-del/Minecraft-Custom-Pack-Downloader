@@ -30,6 +30,7 @@ jobs:
       with:
         file: "target/*.jar"
         tags: true
+        branches: Develop
         overwrite: true
         tag_name: "Release"
         update_latest_release: true
